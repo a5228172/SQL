@@ -1,0 +1,40 @@
+4. 模糊查询
+like是模糊查询关键字
+%表示任意多个任意字符
+_表示一个任意字符
+例1：查询姓黄的学生:
+
+select * from students where name like '黄%';
+例2：查询姓黄并且“名”是一个字的学生:
+
+select * from students where name like '黄_';
+例3：查询姓黄或叫靖的学生:
+
+select * from students where name like '黄%' or name like '%靖';
+5. 范围查询
+between .. and .. 表示在一个连续的范围内查询
+in 表示在一个非连续的范围内查询
+例1：查询编号为3至8的学生:
+
+select * from students where id between 3 and 8;
+例2：查询编号不是3至8的男生:
+
+select * from students where (not id between 3 and 8) and gender='男';
+6. 空判断查询
+判断为空使用: is null
+判断非空使用: is not null
+例1：查询没有填写身高的学生:
+
+select * from students where height is null;
+注意:
+
+不能使用 where height = null 判断为空
+不能使用 where height != null 判断非空
+null 不等于 '' 空字符串
+7. 小结
+常见的比较运算符有 >,<,>=,<=,!=
+逻辑运算符and表示多个条件同时成立则为真，or表示多个条件有一个成立则为真，not表示对条件取反
+like和%结合使用表示任意多个任意字符，like和_结合使用表示一个任意字符
+between-and限制连续性范围 in限制非连续性范围
+判断为空使用: is null
+判断非空使用: is not null

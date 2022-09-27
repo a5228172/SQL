@@ -1,0 +1,19 @@
+decimal表示浮点数，如 decimal(5, 2) 表示共存5位数，小数占 2 位.
+char表示固定长度的字符串，如char(3)，如果填充'ab'时会补一个空格为'ab '，3表示字符数
+varchar表示可变长度的字符串，如varchar(3)，填充'ab'时就会存储'ab'，3表示字符数
+对于图片、音频、视频等文件，不存储在数据库中，而是上传到某个服务器上，然后在表中存储这个文件的保存路径.
+字符串 text 表示存储大文本，当字符大于 4000 时推荐使用, 比如技术博客.
+
+常用的数据类型:
+整数：int，bit
+小数：decimal
+字符串：varchar,char
+日期时间: date, time, datetime
+枚举类型(enum)
+常见的约束:
+主键约束 primary key
+非空约束 not null
+惟一约束 unique
+默认约束 default
+外键约束 FOREIGN KEY (FPerson) REFERENCES T_Person(FName)) ;  当前列FPerson     要关联的表列 T_Person(FName)) 
+数据类型和约束保证了表中数据的准确性和完整性

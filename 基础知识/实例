@@ -1,0 +1,51 @@
+CREATE  TABLE  T_Person  (FName  VARCHAR(20),FAge  INT,FRemark
+VARCHAR(20),PRIMARY KEY (FName));
+CREATE TABLE T_Debt (FNumber VARCHAR(20),FAmount NUMERIC(10,2) NOT
+NULL,
+FPerson VARCHAR(20),PRIMARY KEY (FNumber),
+FOREIGN KEY (FPerson) REFERENCES T_Person(FName)) ;
+
+INSERT INTO T_Person(FName,FAge,FRemark) VALUES('Tom',18,'USA') 
+UPDATE T_Person
+SET FRemark = 'SuperMan'
+UPDATE T_Person
+SET FRemark = 'Sonic',
+FAge=25
+UPDATE T_Person
+SET FAge = 12
+WHERE FNAME='Tom'
+UPDATE T_Person
+SET FRemark = 'BlaBla'
+WHERE FAge =25
+UPDATE T_Person
+SET FAge = 22
+WHERE FName ='jim' OR FName='LXF'
+INSERT INTO T_Person(FName,FAge,FRemark) VALUES('Jim',20,'USA');
+INSERT INTO T_Person(FName,FAge,FRemark) VALUES('Lili',22,'China') ;
+INSERT INTO T_Person(FName,FAge,FRemark) VALUES('XiaoWang',17,' China ') ;
+INSERT INTO T_Person(FName,FAge,FRemark) VALUES('Sam',16,'China') ;
+INSERT INTO T_Person(FName,FAge,FRemark) VALUES('BlueFin',12,'Mars') ;
+DELETE FROM T_Person WHERE FAge > 20 or FRemark = 'Mars'
+SELECT * FROM T_Person
+
+INSERT INTO T_Person(FName,FAge,FRemark) VALUES('Jim',20,'USA');
+INSERT INTO T_Person(FName,FAge,FRemark) VALUES('Lili',22,'China') ;
+INSERT INTO T_Person(FName,FAge,FRemark) VALUES('XiaoWang',17,' China ') ;
+INSERT INTO T_Person(FAge,FName,FRemark) VALUES(21,'Kimisushi','Korea');
+
+INSERT INTO T_Person(FAge,FName) VALUES(22,'LXF');
+INSERT INTO T_Person VALUES('luren1',23,'China');
+INSERT INTO T_Debt (FNumber, FPerson) VALUES ('1', 'Jim');
+INSERT INTO T_Debt (FNumber,FAmount, FPerson) VALUES ('1',300, 'Jim')
+INSERT INTO T_Debt (FNumber,FAmount, FPerson) VALUES ('2',300, 'Jim');
+INSERT INTO T_Debt (FNumber,FAmount, FPerson) VALUES ('3',100, 'Jerry')
+INSERT INTO T_Debt (FNumber,FAmount, FPerson) VALUES ('3',100, 'Tom')
+UPDATE T_Debt set FAmount =123 WHERE FPerson='Tom'
+UPDATE T_Debt set FNumber = '8' WHERE FPerson='Tom'
+UPDATE T_Debt set FPerson = 'Lili' WHERE FNumber='1'
+DELETE FROM T_Debt;
+DELETE FROM T_Person;
+
+ SELECT * FROM T_Debt ;
+ 
+
